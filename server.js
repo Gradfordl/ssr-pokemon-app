@@ -4,8 +4,10 @@ const PORT = process.env.PORT || 3000;
 const jsxViewEngine = require("jsx-view-engine");
 const pokemon = require("./models/pokemon")
 
-app.set("view engine", "jsx");
+
 app.set("views", "./views");
+app.set("view engine", "jsx");
+
 app.engine("jsx", jsxViewEngine());
 
 app.get("/", (req, res) => {
@@ -13,7 +15,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/pokemon", (req, res) => {
-    res.send(pokemon)
+    res.render( "Index" )
 })
 
 app.listen(PORT, () => {
