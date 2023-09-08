@@ -1,22 +1,28 @@
-const React = require("react")
+const React = require("react");
 const myStyle = {
-    color: '#ffffff',
-    backgroundColor: '#000000',
-    };
-    
+  color: "#ffffff",
+  backgroundColor: "#000000",
+};
+
 class Index extends React.Component {
-    render() {
-        const { pokemon } = this.props;
+  render() {
+    const { pokemon } = this.props;
+    return (
+      <div style={myStyle}>
+        <h1>Index Page</h1>
+        <ul>
+          {pokemon.map((pokemon, i) => {
             return (
-                <div style={myStyle} >
-                    <h1>Index Page</h1>
-                </div>
+              <li key={i}>
+                <a href={`/pokemon/${i}`}>{pokemon.name}</a>
+                <br />
+              </li>
             );
-    }
+          })}
+        </ul>
+      </div>
+    );
+  }
+}
 
-    }
-
-    module.exports = Index;
-    
-
-    
+module.exports = Index;
